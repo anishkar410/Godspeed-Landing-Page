@@ -1509,6 +1509,142 @@
             </div>
         </div>
     </section>
+   <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>Godspeed</h3>
+                    <p>The fastest way to build microservices with enterprise-grade features and developer-friendly tooling.</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/godspeedsystems" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="#product"><i class="fas fa-chevron-right"></i> Features</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="https://godspeed.systems/docs" target="_blank"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                        <li><a href="https://github.com/godspeedsystems/roadmap" target="_blank"><i class="fas fa-chevron-right"></i> Roadmap</a></li>
+                        <li><a href="https://github.com/godspeedsystems/releases" target="_blank"><i class="fas fa-chevron-right"></i> Releases</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://blog.godspeed.systems" target="_blank"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="#resources"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                        <li><a href="https://community.godspeed.systems" target="_blank"><i class="fas fa-chevron-right"></i> Community</a></li>
+                        <li><a href="mailto:support@godspeed.systems"><i class="fas fa-chevron-right"></i> Support</a></li>
+                        <li><a href="https://status.godspeed.systems" target="_blank"><i class="fas fa-chevron-right"></i> API Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="https://careers.godspeed.systems" target="_blank"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                        <li><a href="mailto:contact@godspeed.systems"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="https://press.godspeed.systems" target="_blank"><i class="fas fa-chevron-right"></i> Press</a></li>
+                        <li><a href="https://godspeed.systems/legal" target="_blank"><i class="fas fa-chevron-right"></i> Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Godspeed Systems. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Tab Switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Responsive Nav Links
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        }
+        
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+    </script>
    </body>
 </html>
