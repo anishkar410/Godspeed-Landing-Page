@@ -4,7 +4,7 @@ This project is a responsive, modern, and visually compelling landing page for t
 
 ---
 
-## 📦 What We Built
+## 📦 What I Built
 
 An interactive single-page HTML site for Godspeed that includes:
 
